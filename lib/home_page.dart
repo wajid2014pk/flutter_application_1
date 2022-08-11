@@ -4,12 +4,14 @@ class HomePage extends StatelessWidget {
   int days = 20;
   String name = "Wajid Ali";
 
+  HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Catalog App Pra",
+        title: const Text(
+          "Catalog App Practice",
         ),
       ),
       body: Center(
@@ -20,13 +22,13 @@ class HomePage extends StatelessWidget {
             child: Text(
               "Welcome home after $days days from $name",
               style: const TextStyle(
-                  fontSize: 18, fontFamily: 'italic', color: Colors.black87),
+                  fontSize: 20, fontFamily: 'italic', color: Colors.blue),
             ),
           ),
         ),
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.blueAccent,
+      drawer: const Drawer(
+        backgroundColor: Colors.deepPurple,
       ),
     );
   }

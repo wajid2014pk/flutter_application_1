@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_application_1/home_page.dart';
 import 'package:flutter_application_1/loginScreen.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter App",
       //home: HomePage(),
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
           primarySwatch: Colors.green,
@@ -22,8 +24,8 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light, primarySwatch: Colors.deepPurple),
       routes: {
         "/": (context) => LoginScreen(),
-        "/home": (context) => HomePage(),
-        "/login": (context) => LoginScreen()
+        ScreenRoutes.homeRoute: (context) => HomePage(),
+        ScreenRoutes.loginRoute: (context) => LoginScreen()
       },
     );
   }

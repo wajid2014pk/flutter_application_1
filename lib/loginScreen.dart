@@ -37,13 +37,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   'assets/images/login_image.png',
                   fit: BoxFit.cover,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
-                Text("Welcome",
+                const Text("Welcome",
                     style:
                         TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 Padding(
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: "Enter your username ",
                             labelText: "Username"),
                         onChanged: ((value) {
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextFormField(
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: "Enter your Password ",
                             labelText: "Password"),
                         validator: (value) {
@@ -79,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         },
                       ),
-                      SizedBox(
-                        height: 25.0,
+                      const SizedBox(
+                       height: 25.0,
                       ),
                       Material(
                         color: Colors.green,
@@ -89,13 +89,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: InkWell(
                             onTap: () => moveToHome(context),
                             child: AnimatedContainer(
-                              duration: Duration(seconds: 1),
+                              duration: const Duration(seconds: 1),
                               height: 50,
                               width: changedInButton ? 50 : 120,
                               alignment: Alignment.center,
                               child: changedInButton
-                                  ? Icon(Icons.done, color: Colors.white)
-                                  : Text(
+                                  ? const Icon(Icons.done, color: Colors.white)
+                                  : const Text(
                                       "Login",
                                       style: TextStyle(
                                           color: Colors.white,

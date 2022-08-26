@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Catalog App Practice",
+          "Catalog App ",
         ),
       ),
       body: Center(

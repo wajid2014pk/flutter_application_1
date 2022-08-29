@@ -12,11 +12,11 @@ class MyDrawer extends StatelessWidget {
             padding: EdgeInsets.zero,
             child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
-                accountEmail: Text(
+                accountEmail: const Text(
                   "Wajid2014pk@gmail.com",
                   textScaleFactor: 1.15,
                 ),
-                accountName: Text(
+                accountName: const Text(
                   "Wajid Ali",
                   textScaleFactor: 1.15,
                 ),

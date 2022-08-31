@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         changedInButton = true;
       });
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       await Navigator.pushNamed(context, ScreenRoutes.homeRoute);
       setState(() {
         changedInButton = false;
@@ -80,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       const SizedBox(
-                       height: 25.0,
+                        height: 25.0,
                       ),
                       Material(
                         color: Colors.green,

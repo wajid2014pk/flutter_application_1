@@ -1,30 +1,39 @@
-class catalogmodel {
- static final items = [
-    Item(
-      id: 001,
-      name: "Iphone 13 pro",
-      dis: "Apple's iphone 13th generation ",
-      price: 1100,
-      color: "Blue",
-      urlImage:
-          "https://www.apple.com/v/iphone-13-pro/a/images/overview/design/water_resistant__gnhxpuloslay_large.jpg")
-
-  ];
+class CatalogModel {
+  static List<Item> items = [];
 }
 
 class Item {
-  final int id;
+  final num id;
   final String name;
-  final String dis;
+  final String desc;
   final num price;
   final String color;
-  final String urlImage;
+  final String image;
 
   Item(
       {required this.id,
       required this.color,
       required this.name,
-      required this.dis,
+      required this.desc,
       required this.price,
-      required this.urlImage});
+      required this.image});
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map['id'],
+        color: map["color"],
+        name: map["name"],
+        desc: map["desc"],
+        price: map["price"],
+        image: map["image"]);
+  }
+
+  toMap() => {
+        "id": id,
+        "color": color,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "url_Image": image,
+      };
 }

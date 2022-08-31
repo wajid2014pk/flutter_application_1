@@ -11,9 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int days = 20;
+  //int days = 20;
 
-  String name = "Wajid Ali";
+  // String name = "Wajid Ali";
 
   @override
   void initState() {
@@ -22,31 +22,43 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
-    var decodedData = jsonDecode(catalogJson);
-    print(decodedData);
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
+    final decodedData = jsonDecode(catalogJson);
+    var productData = decodedData["products"];
+
+    CatalogModel.items =
+        List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummydata = List.generate(20, ((index) => catalogmodel.items[0]));
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Catalog App ",
+    return Material(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "Catalog App ",
+          ),
         ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: (CatalogModel.items.isNotEmpty)
+              ? Flexible(
+                  child: ListView.builder(
+                      itemCount: CatalogModel.items.length,
+                      itemBuilder: ((context, index) {
+                        return ItemWidget(
+                          item: CatalogModel.items[index],
+                        );
+                      })),
+                )
+              : const Center(
+                  child: CircularProgressIndicator(),
+                ),
+        ),
+        drawer: MyDrawer(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-            itemCount: dummydata.length,
-            itemBuilder: ((context, index) {
-              return ItemWidget(
-                item: dummydata[index],
-              );
-            })),
-      ),
-      drawer: MyDrawer(),
     );
   }
 }

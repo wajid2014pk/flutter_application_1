@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       //home: HomePage(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: Themes.Darktheme(context),
+      theme: Themes.Ligththeme(context),
       darkTheme: Themes.Darktheme(context),
       initialRoute: ScreenRoutes.homeRoute,
       routes: {

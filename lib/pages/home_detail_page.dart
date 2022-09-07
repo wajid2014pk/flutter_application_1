@@ -1,9 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_lorem/flutter_lorem.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
@@ -15,20 +12,33 @@ class HomeDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${catalog.price}".text.xl3.bold.make(),
+            "\$${catalog.price}"
+                .text
+                // .color(
+                //   context.accentColor,
+                // )
+                .xl3
+                .bold
+                .make(),
             ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.blueGrey),
+                            MaterialStateProperty.all(context.canvasColor),
                         shape:
                             MaterialStateProperty.all(const StadiumBorder())),
-                    child: "Add to cart".text.xl.make())
+                    child: "Add to cart"
+                        .text
+                        .xl
+                        .color(
+                          context.accentColor,
+                        )
+                        .make())
                 .wh(140, 50)
           ],
         ).p12(),
@@ -50,12 +60,12 @@ class HomeDetailPage extends StatelessWidget {
             arcType: VxArcType.CONVEY,
             edge: VxEdge.TOP,
             child: Container(
-              color: Colors.white,
+              color: context.cardColor,
               width: context.screenWidth,
               child: Column(
                 children: [
                   catalog.name.text.lg.bold.xl4
-                      .color(Colors.blueGrey)
+                      //.color(context.accentColor)
                       .make()
                       .p12(),
                   catalog.desc.text.xl.textStyle(context.captionStyle).make(),
@@ -64,8 +74,9 @@ class HomeDetailPage extends StatelessWidget {
                       .textStyle(context.captionStyle)
                       .lg
                       .align(TextAlign.justify)
+                      //.color(context.accentColor)
                       .make()
-                      .p16()
+                      .p12()
                 ],
               ).py32(),
             ),

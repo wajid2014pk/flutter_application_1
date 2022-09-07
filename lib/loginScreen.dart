@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -40,8 +41,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 5.0,
                 ),
                 const Text("Welcome",
-                    style:
-                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    )),
                 const SizedBox(
                   height: 5.0,
                 ),
@@ -76,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           } else if (value.length < 6) {
                             return "Password length should be greater then 5";
                           }
+                          return null;
                         },
                       ),
                       const SizedBox(
@@ -88,20 +92,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: InkWell(
                             onTap: () => moveToHome(context),
                             child: AnimatedContainer(
-                              duration: const Duration(seconds: 1),
-                              height: 50,
-                              width: changedInButton ? 50 : 120,
-                              alignment: Alignment.center,
-                              child: changedInButton
-                                  ? const Icon(Icons.done, color: Colors.white)
-                                  : const Text(
-                                      "Login",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20),
-                                    ),
-                            )),
+                                duration: const Duration(seconds: 1),
+                                height: 50,
+                                width: changedInButton ? 50 : 120,
+                                alignment: Alignment.center,
+                                child: changedInButton
+                                    ? const Icon(Icons.done,
+                                        color: Colors.white)
+                                    : "Login".text.bold.lg.make())),
                       )
                     ],
                   ),

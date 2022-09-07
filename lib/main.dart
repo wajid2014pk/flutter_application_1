@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
       title: "Flutter App",
       //home: HomePage(),
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
-      theme: Themes.Ligththeme(context),
+      themeMode: ThemeMode.system,
+      theme: Themes.Darktheme(context),
       darkTheme: Themes.Darktheme(context),
-      initialRoute: ScreenRoutes.homeRoute,
+      initialRoute: ScreenRoutes.loginRoute,
       routes: {
         "/": (context) => LoginScreen(),
         ScreenRoutes.homeRoute: (context) => HomePage(),

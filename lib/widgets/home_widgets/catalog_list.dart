@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/pages/home_detail_page.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'catalog_image.dart';
@@ -43,14 +44,27 @@ class CatalogItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catalog.name.text.lg.bold.color(Colors.blueGrey).make().py4(),
-            catalog.desc.text.textStyle(context.captionStyle).make().expand(),
+            catalog.name.text.lg.bold
+                .
+                //color(context.accentColor)
+                make()
+                .py4(),
+            catalog.desc.text
+                .textStyle(context.captionStyle)
+                //.color(context.accentColor)
+                .make()
+                .expand(),
             Expanded(
               child: ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
                 children: [
-                  "\$${catalog.price}".text.lg.bold.make(),
+                  "\$${catalog.price}"
+                      .text
+                      .lg
+                      .bold
+                      //.color(context.accentColor)
+                      .make(),
                   ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(
@@ -65,6 +79,6 @@ class CatalogItem extends StatelessWidget {
           ],
         ))
       ],
-    )).white.rounded.square(100).make().py16();
+    )).color(context.cardColor).rounded.square(100).make().py16();
   }
 }

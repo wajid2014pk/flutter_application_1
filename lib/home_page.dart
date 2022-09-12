@@ -10,6 +10,8 @@ import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -51,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CatalogHeader(),
+                    const CatalogHeader(),
                     if (CatalogModel.items.isNotEmpty)
                       const CatalogList().expand()
                     else
